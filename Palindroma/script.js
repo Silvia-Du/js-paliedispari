@@ -13,7 +13,8 @@ let userWord;
 while(!checkWord){
 
   //userWord = prompt('inserisci una parola per vedere se è palindroma').trim();
-  userWord = 'scorrere';
+  //userWord = 'scorrere';
+  userWord = 'onorarono';
   const wordCounter = userWord.split(' ');
 
   if(wordCounter.length != 1) {
@@ -30,7 +31,13 @@ if(userWord.length % 2){
 
 for(let i = 0; i< userWord.length / 2; i++){
   let letter = userWord.charAt(i);
-  console.log(letter);
+  console.log(letter, i);
+}
+console.log('-------');
+
+for(let i = userWord.length -1; i> (userWord.length / 2) -1; i--){
+  let halfPastLetter = userWord.charAt(i);
+  console.log(halfPastLetter, i);
 }
 
 
