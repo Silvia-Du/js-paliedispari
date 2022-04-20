@@ -6,8 +6,11 @@ Bonus: L’inserimento avviene tramite un campo input
 
 
 let checkWord = false;
+let checkPali;
 let message;
 let userWord;
+let letter;
+let halfPastLetter;
 
 //verifico che che sia una sola parola.
 while(!checkWord){
@@ -24,21 +27,33 @@ while(!checkWord){
   }
 }
 
-//se non è divisibile per 2 non può essere palindroma
-if(userWord.length % 2){
-  message = 'la parola non è palindroma';
-}
+
 
 for(let i = 0; i< userWord.length / 2; i++){
-  let letter = userWord.charAt(i);
-  console.log(letter, i);
+  letter = userWord.charAt(i);
+    // console.log(letter, i);
 }
-console.log('-------');
-
+  
 for(let i = userWord.length -1; i> (userWord.length / 2) -1; i--){
-  let halfPastLetter = userWord.charAt(i);
-  console.log(halfPastLetter, i);
+  halfPastLetter = userWord.charAt(i);
+    // console.log(halfPastLetter, i);
 }
+
+if(letter === halfPastLetter){
+  console.log('lettera uguale',letter,'-', halfPastLetter);
+}else{
+  console.log('lettera diversa');
+}
+
+
+
+
+
+
+ 
+
+
+
 
 
 
