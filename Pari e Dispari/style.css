@@ -3,3 +3,22 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+
+body{
+  background-color: rgb(63, 108, 114);
+}
+
+.box-output{
+  width: 70%;
+  min-height: 150px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: antiquewhite;
+}
+
+h1{
+  margin-bottom: 20px;
+}
