@@ -22,7 +22,8 @@ body{
 h1, h3{
   margin-bottom: 20px;
 }
-button{
-  display: block;
-  margin: 25px auto;
+
+#user-pari-dispari,
+#user-number{
+  width: 40%;
 }

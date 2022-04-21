@@ -7,38 +7,37 @@ Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 Dichiariamo chi ha vinto.
 Bonus: L’inserimento avviene tramite un campo input
 */
-let userPariDispari = 'pari'; //prompt
-let min = 1;
-let max = 5;
-let result;
+
+
 let message;
-let checkUserNumber = false;
-const btnPlay = document.getElementById('button-play');
+
+
 
 //verificherò che sia tra 1 e 5 e che sia un numero 
 
-btnPlay.addEventListener('click', function(){
+document.getElementById('button-play').addEventListener('click', function(){
 
-  //raccolgo dati dall'utente e li salvo in una const
-  const userChoice = document.getElementById('pari-dispari').value.trim();
+  //raccolgo dati dall'utente e li salvo
+  const userChoice = document.getElementById('user-pari-dispari').value.trim();
   console.log(userChoice);
   const userNumber = document.getElementById('user-number').value.trim();
   console.log(userNumber);
-  isANumberUser = parseInt(userNumber);
+  const isANumberUser = parseInt(userNumber);
 
-  console.log(isPariDispari(pcRandomNumber(min, max), isANumberUser));
   
-  const functionResult = isPariDispari(pcRandomNumber(min, max), isANumberUser);
 
-  if(functionResult === userChoice){
-    message = 'hai vinto!!!!!'
+  const pcNumber = RandomNumGenerator(1, 5);
+  console.log('num pc',pcNumber);
+
+  const sum = pcNumber + isANumberUser;
+
+  if(isPariDispari(sum) === userChoice){
+    message = `Hai scelto ${userNumber} &  "${userChoice}" <br> l'IA ha scelto ${pcNumber} quindi la somma è ${sum} , è ${isPariDispari(sum)} hai vinto!`;
   }else{
-    message = 'hahaahha hai perso!!!'
+    message = `Hai scelto ${userNumber} &  "${userChoice}" <br>  l'IA ha scelto ${pcNumber} quindi la somma è ${sum}, è ${isPariDispari(sum)} hai PERSOOOO!`;
   }
 
-document.getElementById('output').innerHTML = message;
-
-
+  document.getElementById('output').innerHTML = message;
 })
 
 
@@ -46,27 +45,17 @@ document.getElementById('output').innerHTML = message;
 
 
 //random per il pc
-function pcRandomNumber(min, max){
+function RandomNumGenerator(min, max){
 
   return  Math.floor(Math.random() * (max - min +1) + min );
 
 }
 
 //function pari dispari 
-function isPariDispari(num1, num2){
+function isPariDispari(number){
 
-  const sum = num1 + num2;
-
-  if(sum % 2 === 0){
-    result = 'pari';
-  }else{
-    result = 'dispri';
-  }
-
-  return result;
-
-  //return per verifica di corretto funzionamento
-  //return `i numeri sono ${num1}, ${num2} la loro somme è ${sum} e la loro somme è ${result}`
+  if(number % 2 === 0) return 'pari';
+  return 'dispari';
 
 }
 
