@@ -4,55 +4,55 @@ Creare una funzione per capire se la parola inserita è palindroma
 Bonus: L’inserimento avviene tramite un campo input
 */
 
+const btnStart = document.getElementById('btn-start');
 
-let checkWord = false;
 
-let message;
-let userWord;
-let halfPastLetter;
+//all'evento del clic:
+btnStart.addEventListener('click', function(){
 
-//verifico che che sia una sola parola.
-while(!checkWord){
+  let message;
 
-  userWord = 'onorarono';// prompt
-  const wordCounter = userWord.split(' ');
+  //raccolgo i dati
+  const userWord = document.getElementById('user-word').value.trim();
 
-  if(wordCounter.length != 1) {
-    alert('inserisci solo una parola!')
+  //invoco la funzione
+  const checkWord = isPalindroma(userWord);
+
+  //creo la logica di output;
+  if( checkWord ){
+    message = `"${userWord}" è palindroma`;
   }else{
-    checkWord = true;
+    message = `"${userWord}" non è palindroma`;
   }
-}
 
-//assegno una let alla function;
-if( isPalindroma( userWord )){
-  message = `"${userWord}" è palindroma`;
-}else{
-  message = 'non è mica palindroma';
-}
+document.getElementById('output').innerHTML = message;
+
+
+})
+
+
 
 //function
 
-function isPalindroma( userWord ){
+function isPalindroma( word ){
 
-  let checkPali = true;
+  let checkPalindroma = true;
 
-  for( let i = 0; i < userWord.length / 2; i++ ){
+  for( let i = 0; i < word.length / 2; i++ ){
 
-    let letter = userWord.charAt( i );
-    let fine = userWord.length - 1;
+    let letter = word.charAt( i );
+    let fine = word.length - 1;
     console.log(fine, 'fine');
 
-    let letter2 = userWord.charAt( fine - i );
+    let letter2 = word.charAt( fine - i );
     console.log(letter, '--', letter2);
 
     if( letter != letter2 ){
-     checkPali = false;
+     checkPalindroma = false;
     }
   }
 
-  return checkPali;
+  return checkPalindroma;
 }
 
 
-document.getElementById('output').innerHTML = message;
