@@ -23,9 +23,6 @@ document.getElementById('button-play').addEventListener('click', function(){
   const userNumber = document.getElementById('user-number').value.trim();
   console.log(userNumber);
   const isANumberUser = parseInt(userNumber);
-
-  
-
   const pcNumber = RandomNumGenerator(1, 5);
   console.log('num pc',pcNumber);
 
@@ -39,6 +36,7 @@ document.getElementById('button-play').addEventListener('click', function(){
 
   document.getElementById('output').innerHTML = message;
 })
+
 
 
 //function
